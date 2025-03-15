@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request
 from datetime import datetime
 import re
-from linearRegression import calculateGrade
-from linearRegression import grafica
+from linearRegression import predict_price
+from linearRegression import graphic
 
 app = Flask(__name__)
 
@@ -33,8 +33,8 @@ def linearRegression () :
     calculateResult = None
     plot_url = None
     if request.method == "POST":
-        hours = float (request.form["hours"])
-        calculateResult = calculateGrade(hours)
-        plot_url= grafica(hours, calculateResult)
+        size = float (request.form["size"])
+        calculateResult = predict_price(size)
+        plot_url= graphic(size, calculateResult)
 
     return render_template("linearRegressionGrades.html", result = calculateResult, plot_url= plot_url)
