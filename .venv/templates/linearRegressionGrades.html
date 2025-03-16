@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House price prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilosLR.css') }}">
 </head>
 <body>
+    <section>
     <h1>Linear Regression : Calculate price Depends size of the House</h1>
     <p>Enter the size of the house in m² to estimate its price in USD</p>
 
     <form  method = "post">
+    </section>
+    <section class="fuentes">
         <label for = "Size(m²)">Size</label>
         <input type="number" name = "size" step ="0.01" required>
         <button type ="submit">Predict</button>
+    
+    </section>
     </form>
+    
     {%if result  is not none%}
     <h2>Estimated price : {{result}}</h2>
     {%endif%}
