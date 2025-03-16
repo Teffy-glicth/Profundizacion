@@ -1,0 +1,4 @@
+echo "*.pyc" >> .gitignore
+git rm --cached -r .venv/__pycache__
+git commit -m "Ignorar archivos .pyc en Git"
+git push origin nombre-de-la-rama
