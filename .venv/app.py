@@ -38,3 +38,7 @@ def linearRegression () :
         plot_url= grafica(hours, calculateResult)
 
     return render_template("linearRegressionGrades.html", result = calculateResult, plot_url= plot_url)
+
+@app.route("/mindmeister/")
+def mindmeisterHTML():
+    return render_template("mindmeister.html")
