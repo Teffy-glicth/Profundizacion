@@ -11,6 +11,15 @@ h1 {
     text-align: center;
     font-size: 30px;
     text-transform: uppercase;
+    
+}
+
+
+p {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
 }
 
 
