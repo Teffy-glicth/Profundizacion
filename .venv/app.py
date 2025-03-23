@@ -33,9 +33,9 @@ def linearRegression () :
     calculateResult = None
     plot_url = None
     if request.method == "POST":
-        hours = float (request.form["hours"])
-        calculateResult = calculateGrade(hours)
-        plot_url= grafica(hours, calculateResult)
+        size = float (request.form["size"])
+        calculateResult = predict_price(size)
+        plot_url= graphic(size, calculateResult)
 
     return render_template("linearRegressionGrades.html", result = calculateResult, plot_url= plot_url)
 
