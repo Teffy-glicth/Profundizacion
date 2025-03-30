@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MachineLearning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleHome.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="title">
+    <h1>
+        Profundizacion II Machine learning
+    </h1>
+</section>
+<section class="text">
+    <p>¡Hola y bienvenido a nuestra página! 👋
+
+        Somos Santiago Torres y Esteffy Bachiller, y hemos creado este espacio para compartir ejemplos prácticos sobre la aplicación de distintos tipos de Machine Learning. Nuestro objetivo es proporcionar material didáctico que facilite la comprensión de estos conceptos a través de ejercicios interactivos y explicaciones detalladas.
+        
+        Aquí encontrarás una recopilación de los ejercicios propuestos en clase por nuestro mentor, Edison Cañón, donde exploramos modelos de aprendizaje supervisado y no supervisado, análisis de datos y técnicas avanzadas de predicción.
+        
+        Esperamos que esta página sea de utilidad para ti y te ayude a profundizar en el fascinante mundo del Machine Learning. 🚀✨
+    </p>
+</section>
+<section class = "button1">
+    <button onclick="desvanecerYPasar('{{url_for('exampleHTML')}}')">
+        Casos de Uso del Machine Learning Supervisado
+    </button>
+</section>
+<section class = "button2">
+    <button onclick="desvanecerYPasar('{{url_for('linearRegression')}}')">
+        Regresión Lineal
+    </button>
+</section>
+<section class = "button3">
+    <button onclick="desvanecerYPasar('{{url_for('mindmeisterHTML')}}')">
+        Mapa Mental Regresión Logística
+    </button>
+</section>
+
+<script>
+    function desvanecerYPasar(url) {
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+            window.location.href = url;
+        }, 500); // Debe coincidir con la animación CSS (0.5s)
+    }
+</script>
+
+   
+</body>
+</html>
