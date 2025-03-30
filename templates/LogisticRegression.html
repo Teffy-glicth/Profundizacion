@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vote Prediction</title>
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='EstiloLogisticRegression.css') }}">
 </head>
 <body>
     <section> 
@@ -44,15 +44,15 @@
     {% if result is not none %}
     <h2> Prediction:
         {% if result ==1 %}
-            The person <strong> Will vote</strong>
+            The person <strong> will vote for the political party</strong>
         {% else %}
-            The person <strong> Will not vote</strong>
+            The person <strong> Will not vote for the political party</strong>
         {% endif %}
     </h2>
     {% endif%}
     {% if plot_url %}
     <h2> Prediction Graph</h2>
-    <img src = "data:image/png;base64,{{ plot_url}}" alt=" "Prediction Graph">
+    <img src = "data:image/png;base64,{{ plot_url}}" alt="Prediction Graph">
     {% endif %}
 </body>
 </html>
