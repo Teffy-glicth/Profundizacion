@@ -63,7 +63,7 @@ def LogisticRegression () :
 
             input_data = np.hstack ([[age], income_scaled.flatten(), region_encoded.flatten(), party_encoded.flatten()]).reshape (1, -1)
             result = model.predict (input_data)[0]
-            plot_url =generate_plot()
+            plot_url = generate_plot()
 
         except Exception as e:
             print ("Error: ", e)
