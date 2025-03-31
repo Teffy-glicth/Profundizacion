@@ -27,9 +27,9 @@
 
             <label for = "Previous_Answer"> Previous_Answer</label>
             <select name = "Previous_Answer" required>
-                <option value="Partido liberal">Partido Liberal</option>
-                <option value="Pacto histórico">Pacto Histórico</option>
-                <option value="Centro democrático">Centro Democrático</option>
+                <option value="Partido Liberal">Partido Liberal</option>
+                <option value="Pacto Histórico">Pacto Histórico</option>
+                <option value="Centro Democrático">Centro Democrático</option>
                 <option value="Partido Verde">Partido Verde</option>
             </select>
 
@@ -50,9 +50,21 @@
         {% endif %}
     </h2>
     {% endif%}
+    
     {% if plot_url %}
-    <h2> Prediction Graph</h2>
-    <img src = "data:image/png;base64,{{ plot_url}}" alt="Prediction Graph">
-    {% endif %}
+    <div class="graph-container">
+        <h2>Analysis Results</h2>
+        <div class="graph-description">
+            <p><strong>Specification:</strong><br>
+                <span style="color: #3498db">Blue</span>: Actually voted NO<br>
+                <span style="color: #e74c3c">Red</span>: Actually voted YES<br>
+                <span style="color: #e74c3c">X</span>: Model prediction for YES<br>
+                <span style="color: #3498db">X</span>: Model prediction for NO</p>
+    </div>
+    <img src="data:image/png;base64,{{ plot_url }}" 
+         alt="Voting Analysis" 
+         class="responsive-img">
+</div>
+{% endif %}
 </body>
 </html>
