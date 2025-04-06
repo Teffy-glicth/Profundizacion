@@ -5,8 +5,11 @@ import numpy as np
 from linearRegression import calculateGrade
 from linearRegression import grafica
 from LogisticRegression import encoder_Party, encoder_Region, scaler, model, generate_plot
+from models import Modelo, db
+import config
 
 app = Flask(__name__)
+app.config.from_object(config)
 
 @app.route("/")
 def home():
@@ -70,3 +73,16 @@ def LogisticRegression () :
 
     return render_template("LogisticRegression.html", result = result, plot_url= plot_url)
 
+db.init_app(app)
+with app.app_context():
+    db.create_all()
+
+@app.route("/modelos/")
+def lista_modelos():
+    modelos = Modelo.query.all()
+    return render_template("modelo.html", modelos=modelos)
+
+@app.route("/modelos/<int:modelo_id>")
+def detalle_modelo(modelo_id):
+    modelo = Modelo.query.get_or_404(modelo_id)
+    return render_template("detalles_modelo.html", modelo=modelo)
