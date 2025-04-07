@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos ML</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href ="{{ url_for('home')}}">INICIO</a></li>
+            <li> 
+                <a href ="{{ url_for('lista_modelos')}}">Modelos</a>
+                <ul>
+                    {% with modelos = Modelo.query.all() %}
+                    {% for modelo in modelos %}
+                        <li><a href="{{ url_for('detalle_modelo', modelo_id=modelo.id) }}">{{ modelo.nombre }}</a></li>
+                    {% endfor %}
+                    {% endwith %}
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class = "container">
+        {% block content %}{% endblock %}
+    </div>
+    
+</body>
+</html>

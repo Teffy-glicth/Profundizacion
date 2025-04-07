@@ -80,6 +80,14 @@ p{
     padding: 2px;
     
 }
+.button5{
+    width: 50%;
+    margin: 10px auto;
+    padding: 2px;
+    display: flex; /* Usamos flexbox para alinear el botón */
+    justify-content: flex-end; /* Alinea el botón a la derecha */
+    margin-top: 10px; /* Espacio entre el texto y el botón */
+}
 button {
     background-color: rgba(21, 101, 125, 0.521); /* Rojo */
     border: none;

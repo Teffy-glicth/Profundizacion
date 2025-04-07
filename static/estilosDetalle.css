@@ -1,0 +1,100 @@
+
+body {
+    background-color: #9fecff;
+    font-family: 'Gill Sans';
+    margin: 50;
+    padding: 0;
+}
+
+h1 {
+    color: rgb(13, 92, 196);
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    
+}
+
+
+p {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 20px;
+    
+}
+
+
+section {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 50px 50px 50px rgba(0, 0, 0, 0.1);
+}
+
+.Fuentes {
+    background-color: #222;
+    color: white; 
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 70px auto;
+    border-radius: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente (opcional) */
+    height: 100px;           /* Puedes ajustar la altura según necesites */
+  }
+button {
+    background-color: rgba(21, 101, 125, 0.521); 
+    border: none;
+    color: rgba(255, 255, 255, 0.521);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition-duration: 0.4s; 
+    font-family: 'Orbitron', sans-serif;
+    
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.408); 
+    color: black; 
+    border: 2px solid #0d6ec9; 
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.8), 0 0 20px rgba(1, 178, 254, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+  }
+  button:active {
+    transform: scale(0.9);
+}
+
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
