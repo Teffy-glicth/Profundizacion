@@ -87,5 +87,3 @@ def detalle_modelo(modelo_id):
     modelo = Modelo.query.get_or_404(modelo_id)
     return render_template("detalles_modelo.html", modelo=modelo)
 
-if __name__ == "__main__":
-    app.run(debug=True)
