@@ -4,3 +4,4 @@ pyodbc
 gunicorn
 numpy
 pandas
+matplotlib
