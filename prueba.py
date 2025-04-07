@@ -1,22 +1,19 @@
-from sqlalchemy import create_engine, inspect
-from sqlalchemy.exc import SQLAlchemyError
-import config
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-try:
-    
-    engine = create_engine(config.SQLALCHEMY_DATABASE_URI)
+app = Flask(__name__)
 
-    
-    with engine.connect() as connection:
-        print("✅ Conexión exitosa.")
+# Usa tu connection string o variable de entorno
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://modelos_db_user:lZUg1NORsgAtBIrBJR70jWwcOUldbsow@dpg-cvq1ngjuibrs73879030-a/modelos_db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-        
-        inspector = inspect(engine)
-        tablas = inspector.get_table_names()
+db = SQLAlchemy(app)
 
-        print("📋 Tablas encontradas en la base de datos:")
-        for tabla in tablas:
-            print(f"  - {tabla}")
-
-except SQLAlchemyError as e:
-    print("❌ Error al consultar:", e)
+@app.route('/')
+def test_db():
+    try:
+        # Ejecuta una consulta básica a la base de datos
+        db.session.execute('SELECT 1')
+        return '✅ Conexión exitosa con la base de datos en Render'
+    except Exception as e:
+        return f'❌ Error al conectar con la base de datos: {e}'

@@ -1,1 +1,2 @@
-SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://SantiagoTH0_SQLLogin_1:3cgy9uprny@modelos_db.mssql.somee.com/modelos_db?driver=ODBC+Driver+17+for+SQL+Server&TrustServerCertificate=yes'
+SQLALCHEMY_DATABASE_URI = 'postgresql://modelos_db_user:lZUg1NORsgAtBIrBJR70jWwcOUldbsow@dpg-cvq1ngjuibrs73879030-a.oregon-postgres.render.com/modelos_db'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
