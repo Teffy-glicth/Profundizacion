@@ -1,0 +1,79 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{  
+        background-image: url('img/fondoModelo.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+}
+
+h1{
+    color: rgb(102, 176, 255);
+    text-align: center;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.8), 0 0 20px rgba(1, 178, 254, 0.5);
+    font-family: 'Orbitron', sans-serif;
+
+
+}
+
+.title{
+    width: 80%; /* Ajusta el ancho */
+    margin: 50px auto; /* Centra horizontalmente */
+    padding: 10px; /* Espacio interno */
+    background-color: #f4f4f423; /* Color de fondo */
+    border-radius: 15px; /* Bordes redondeados */
+    
+
+
+}
+button {
+    width: 50%;
+    margin: 10px auto;
+    padding: 2px;
+    background-color: rgba(21, 101, 125, 0.521); 
+    border: none;
+    color: rgba(255, 255, 255, 0.521);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition-duration: 0.4s; 
+    font-family: 'Orbitron', sans-serif;
+    
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.408); 
+    color: black; 
+    border: 2px solid #0d6ec9; 
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.8), 0 0 20px rgba(1, 178, 254, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+  }
+  button:active {
+    transform: scale(0.9);
+}
+
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
