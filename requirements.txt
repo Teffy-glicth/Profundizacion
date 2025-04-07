@@ -6,3 +6,4 @@ scikit-learn
 numpy
 gunicorn
 matplotlib
+psycopg2-binary
