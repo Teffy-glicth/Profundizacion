@@ -1,8 +1,0 @@
-Flask
-Flask-SQLAlchemy
-pyodbc
-gunicorn
-numpy
-pandas
-matplotlib
-scikit-learn
