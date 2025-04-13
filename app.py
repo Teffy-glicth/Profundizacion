@@ -7,6 +7,9 @@ from linearRegression import grafica
 from LogisticRegression import encoder_Party, encoder_Region, scaler, model, generate_plot
 from models import Modelo, db
 import config
+from flask import render_template, request, jsonify, send_file
+from modelo_clasificacion import predecir_desde_excel, exportar_resultados
+
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -86,4 +89,33 @@ def lista_modelos():
 def detalle_modelo(modelo_id):
     modelo = Modelo.query.get_or_404(modelo_id)
     return render_template("detalles_modelo.html", modelo=modelo)
+@app.route('/clasificacion')
+def clasificacion():
+    return render_template('clasificacion.html')
+@app.route("/cargar")
+def cargar_modelo():
+    return render_template("cargar_modelo.html")
+
+@app.route("/predecir", methods=["POST"])
+def predecir():
+    archivo = request.files["archivo"]
+    try:
+        df, metricas = predecir_desde_excel(archivo)
+        return render_template("resultados.html", 
+                            tabla=df.to_html(classes="table table-bordered"),
+                            accuracy=metricas['accuracy'],
+                            report=metricas['report'],
+                            plot_url=metricas['plot_url'],
+                            mensaje="Modelo entrenado y predicciones realizadas con éxito")
+    except Exception as e:
+        return render_template("resultados.html", 
+                            error=f"Error al procesar el archivo: {str(e)}")
+
+
+@app.route("/exportar")
+def exportar():
+    ruta = exportar_resultados()
+    if ruta:
+        return send_file(ruta, as_attachment=True)
+    return redirect("/")
 

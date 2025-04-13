@@ -1,0 +1,9 @@
+<!-- templates/carga_datos.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h2>Cargar archivo de datos</h2>
+<form action="/predecir" method="post" enctype="multipart/form-data">
+    <input type="file" name="archivo" accept=".xlsx" required>
+    <button type="submit">Cargar y Predecir</button>
+</form>
+{% endblock %}

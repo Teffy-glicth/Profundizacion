@@ -1,0 +1,116 @@
+<style>
+body {  
+    background-image: url('../static/img/imagenfondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button, .btn {
+    background-color: rgba(21, 101, 125, 0.521);
+    border: none;
+    color: rgba(255, 255, 255, 0.521);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    font-family: 'Orbitron', sans-serif;
+}
+
+button:hover, .btn:hover {
+    background-color: rgba(0, 0, 0, 0.408);
+    color: black;
+    border: 2px solid #3f00bd;
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.8), 0 0 20px rgba(1, 178, 254, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+}
+
+button:active, .btn:active {
+    transform: scale(0.9);
+}
+
+.metrics-container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+h1 {
+    color: rgb(102, 176, 255);
+    text-align: center;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.8), 0 0 20px rgba(1, 178, 254, 0.5);
+    font-family: 'Orbitron', sans-serif;
+}
+
+h2, h3 {
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.accuracy {
+    color: #fff;
+    font-size: 24px;
+    margin: 15px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.predictions-table {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.table {
+    color: white;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+</style>
+
+<div class="container">
+    <!-- Botones en la parte superior -->
+    <div class="buttons-container">
+        <a href="/clasificacion" class="btn">Volver</a>
+        <a href="/exportar" class="btn">Exportar Resultados</a>
+    </div>
+
+    <h1>RESULTADOS DE LA PREDICCIÓN</h1>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% else %}
+        <div class="metrics-container">
+            <h2>Métricas del Modelo</h2>
+            <p class="accuracy">Precisión (Accuracy): {{ (accuracy * 100)|round(2) }}%</p>
+            
+            <h3>Matriz de Confusión</h3>
+            <img src="data:image/png;base64,{{ plot_url }}" alt="Matriz de Confusión">
+        </div>
+
+        <div class="predictions-table">
+            <h3>Predicciones</h3>
+            {{ tabla | safe }}
+        </div>
+    {% endif %}
