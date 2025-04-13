@@ -7,3 +7,4 @@ gunicorn==23.0.0
 matplotlib==3.10.1
 psycopg2-binary==2.9.10
 openpyxl
+seaborn==0.13.2

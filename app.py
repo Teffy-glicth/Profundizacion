@@ -100,9 +100,12 @@ def cargar_modelo():
 def predecir():
     archivo = request.files["archivo"]
     try:
-        df = predecir_desde_excel(archivo)
+        df, metricas = predecir_desde_excel(archivo)
         return render_template("resultados.html", 
                             tabla=df.to_html(classes="table table-bordered"),
+                            accuracy=metricas['accuracy'],
+                            report=metricas['report'],
+                            plot_url=metricas['plot_url'],
                             mensaje="Modelo entrenado y predicciones realizadas con éxito")
     except Exception as e:
         return render_template("resultados.html", 
