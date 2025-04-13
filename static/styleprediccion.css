@@ -28,15 +28,15 @@ p{
     text-align: center;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
-    line-height: 1.6; /* Espaciado entre líneas para legibilidad */
+    line-height: 1.6; 
 
 }
 .title{
-    width: 80%; /* Ajusta el ancho */
-    margin: 50px auto; /* Centra horizontalmente */
-    padding: 10px; /* Espacio interno */
-    background-color: #f4f4f423; /* Color de fondo */
-    border-radius: 15px; /* Bordes redondeados */
+    width: 80%; 
+    margin: 50px auto; 
+    padding: 10px; 
+    background-color: #f4f4f423; 
+    border-radius: 15px; 
     
 
 
@@ -54,9 +54,9 @@ p{
     width: 50%;
     margin: 10px auto;
     padding: 2px;
-    display: flex; /* Usamos flexbox para alinear el botón */
-    justify-content: flex-end; /* Alinea el botón a la derecha */
-    margin-top: 10px; /* Espacio entre el texto y el botón */
+    display: flex; 
+    justify-content: flex-end; 
+    margin-top: 10px; 
 
 }
 .button2{
@@ -69,9 +69,9 @@ p{
     width: 50%;
     margin: 10px auto;
     padding: 2px;
-    display: flex; /* Usamos flexbox para alinear el botón */
-    justify-content: flex-end; /* Alinea el botón a la derecha */
-    margin-top: 10px; /* Espacio entre el texto y el botón */
+    display: flex; 
+    justify-content: flex-end; 
+    margin-top: 10px; 
     
 }
 .button4{
@@ -84,9 +84,9 @@ p{
     width: 50%;
     margin: 10px auto;
     padding: 2px;
-    display: flex; /* Usamos flexbox para alinear el botón */
-    justify-content: flex-end; /* Alinea el botón a la derecha */
-    margin-top: 10px; /* Espacio entre el texto y el botón */
+    display: flex; 
+    justify-content: flex-end; 
+    margin-top: 10px; 
 }
 .button6{
     width: 50%;
@@ -95,7 +95,7 @@ p{
     
 }
 button {
-    background-color: rgba(21, 101, 125, 0.521); /* Rojo */
+    background-color: rgba(21, 101, 125, 0.521); 
     border: none;
     color: rgba(255, 255, 255, 0.521);
     padding: 15px 32px;
@@ -106,7 +106,7 @@ button {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 12px;
-    transition-duration: 0.4s; /* Duración de la transición */
+    transition-duration: 0.4s; 
     font-family: 'Orbitron', sans-serif;
     
   }
@@ -114,7 +114,7 @@ button {
   button:hover {
     background-color: rgba(0, 0, 0, 0.408); 
     color: black; 
-    border: 2px solid #3f00bd; /* Efecto hover */
+    border: 2px solid #3f00bd; 
     text-shadow: 0 0 10px rgba(0, 170, 255, 0.8), 0 0 20px rgba(1, 178, 254, 0.5);
     font-family: 'Orbitron', sans-serif;
     font-size: 20px;
@@ -123,7 +123,7 @@ button {
     transform: scale(0.9);
 }
 
-/* Animación de desvanecimiento */
+
 .fade-out {
     animation: fadeOut 0.5s forwards;
 }
