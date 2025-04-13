@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Predicción</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleprediccion.css') }}">
+    <style>
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .table th, .table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #444;
+            color: white;
+            font-size: 16px;
+        }
+        .table th {
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+        }
+        .table tr:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <section class="title">
+        <h1>Resultados de la Predicción</h1>
+    </section>
+
+    <div class="results-container">
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% else %}
+            {{ tabla | safe }}
+        {% endif %}
+    </div>
+
+    <section class="button-container">
+        <button onclick="desvanecerYPasar('{{url_for('clasificacion')}}')">
+            Volver a Clasificación
+        </button>
+        <button onclick="desvanecerYPasar('{{url_for('exportar')}}')">
+            Exportar Resultados
+        </button>
+    </section>
+
+    <script>
+        function desvanecerYPasar(url) {
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+                window.location.href = url;
+            }, 500);
+        }
+    </script>
+</body>
+</html>
