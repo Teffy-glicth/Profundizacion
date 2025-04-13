@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación de Datos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleprediccion.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        h1, h2 {
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .upload-form {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        input[type="file"] {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="title">
+        <h1>Clasificación de Datos</h1>
+    </section>
+    
+    <section class="form-section">
+        <div class="upload-form">
+            <h2>Cargar Archivo Excel</h2>
+            <form action="{{ url_for('predecir') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="archivo" accept=".xlsx,.xls" required>
+                <button type="submit">Procesar</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="button-back">
+        <button onclick="desvanecerYPasar('{{url_for('home')}}')">
+            Volver al Inicio
+        </button>
+    </section>
+
+    <script>
+        function desvanecerYPasar(url) {
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+                window.location.href = url;
+            }, 500);
+        }
+    </script>
+</body>
+</html>
