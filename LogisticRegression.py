@@ -62,10 +62,9 @@ y = df["Vote"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42) #separa el modelo en 80% entrenamiento y 20% prueba
 
 
-model = LogisticRegression(max_iter = 2000, class_weight = "balanced") #se crea el modelo para entrenarlo
-model.fit (X_train, y_train) #Entrenamiento con los datos
-
-y_pred = model.predict (X_test) #Predice en el conjunto de prueba
+model = LogisticRegression(max_iter = 2000, class_weight = "balanced") 
+model.fit (X_train, y_train) 
+y_pred = model.predict (X_test) 
 
 accuracy = accuracy_score (y_test, y_pred)
 print (f"Model Accuracy: {accuracy: .2f}")
@@ -95,6 +94,6 @@ def generate_plot():
     img = io.BytesIO()
     plt.savefig(img, format="png", dpi=100, bbox_inches='tight')
     img.seek(0)
-    plt.close()  # ¡Importante para liberar memoria!
+    plt.close()  
     
     return base64.b64encode(img.getvalue()).decode()
