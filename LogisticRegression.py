@@ -79,6 +79,19 @@ def generate_plot():
     plt.figure(figsize=(10, 6))
     plt.scatter(df["Age"], df["Vote"], c=df["Vote"], cmap="coolwarm", label="Actual Data", alpha=0.7)
     
+    
+    age_range = np.linspace(df["Age"].min(), df["Age"].max(), 300).reshape(-1, 1)
+    
+    X_temp = pd.DataFrame(age_range, columns=["Age"])
+    
+    for col in X.columns:
+        if col != "Age":
+            X_temp[col] = 0
+    
+    
+    y_prob = model.predict_proba(X_temp)[:, 1]
+    plt.plot(age_range, y_prob, 'g-', label='Logistic Curve', alpha=0.8)
+    
     if 'X_test' in globals():
         try:
             plt.scatter(X_test["Age"], y_pred, c=y_pred, cmap="coolwarm", marker="x", s=100, label="Predicted", alpha=0.5, linewidths=1)
@@ -95,6 +108,6 @@ def generate_plot():
     img = io.BytesIO()
     plt.savefig(img, format="png", dpi=100, bbox_inches='tight')
     img.seek(0)
-    plt.close()  # ¡Importante para liberar memoria!
+    plt.close()  
     
     return base64.b64encode(img.getvalue()).decode()
