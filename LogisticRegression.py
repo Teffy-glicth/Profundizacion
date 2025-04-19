@@ -62,9 +62,10 @@ y = df["Vote"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42) #separa el modelo en 80% entrenamiento y 20% prueba
 
 
-model = LogisticRegression(max_iter = 2000, class_weight = "balanced") 
-model.fit (X_train, y_train) 
-y_pred = model.predict (X_test) 
+model = LogisticRegression(max_iter = 2000, class_weight = "balanced") #se crea el modelo para entrenarlo
+model.fit (X_train, y_train) #Entrenamiento con los datos
+
+y_pred = model.predict (X_test) #Predice en el conjunto de prueba
 
 accuracy = accuracy_score (y_test, y_pred)
 print (f"Model Accuracy: {accuracy: .2f}")
@@ -77,6 +78,19 @@ print ("\n Classification Report: \n", classification_report(y_test, y_pred))
 def generate_plot():
     plt.figure(figsize=(10, 6))
     plt.scatter(df["Age"], df["Vote"], c=df["Vote"], cmap="coolwarm", label="Actual Data", alpha=0.7)
+    
+    
+    age_range = np.linspace(df["Age"].min(), df["Age"].max(), 300).reshape(-1, 1)
+    
+    X_temp = pd.DataFrame(age_range, columns=["Age"])
+    
+    for col in X.columns:
+        if col != "Age":
+            X_temp[col] = 0
+    
+    
+    y_prob = model.predict_proba(X_temp)[:, 1]
+    plt.plot(age_range, y_prob, 'g-', label='Logistic Curve', alpha=0.8)
     
     if 'X_test' in globals():
         try:
